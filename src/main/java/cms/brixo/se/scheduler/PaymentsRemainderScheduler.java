@@ -37,7 +37,7 @@ public class PaymentsRemainderScheduler {
     @Value("${spring.mail.username}")
     private String senderEmail;
 
-    @Scheduled(cron = "0 */5 * * * *")
+    @Scheduled(cron="${spring.scheduling.job.cron}")
     public void paymentRemainder() {
         List<Debtor> debtorList = debtorRepository.findAll();
         int size = debtorList.size();
