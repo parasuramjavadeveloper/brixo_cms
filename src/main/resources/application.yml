@@ -30,8 +30,8 @@ spring:
   profiles: dev
   mail:
     host: smtp.gmail.com
-    username: xxxxxx
-    password: xxxxxx
+    username: testbrixo@gmail.com
+    password: vqjjaqbbfylyeusf
     port: 587
     properties:
       mail:
@@ -71,8 +71,8 @@ spring:
   profiles: test
   mail:
     host: smtp.gmail.com
-    username: xxxxxx
-    password: xxxxxx
+    username: testbrixo@gmail.com
+    password: vqjjaqbbfylyeusf
     port: 587
     properties:
       mail:
@@ -112,8 +112,8 @@ spring:
   profiles: prod
   mail:
     host: smtp.gmail.com
-    username: xxxxx
-    password: xxxxx
+    username: testbrixo@gmail.com
+    password: vqjjaqbbfylyeusf
     port: 587
     properties:
       mail:
