@@ -49,7 +49,6 @@ public class PaymentsRemainderScheduler {
                 Optional<PaymentPlan> optionalPaymentPlan = payments.stream().filter(plan -> plan.getIsPaid().equalsIgnoreCase("DUE")).findFirst();
                 if (optionalPaymentPlan.isPresent()) {
                     PaymentPlan payment = optionalPaymentPlan.get();
-                    debtor.setEmail("parasuramyerramsetty@gmail.com");
                     mailMessage = simpleMailMessage(debtor.getEmail());
                     mailMessage.setSubject("Payment Remainder");
                     mailMessage.setText("Hello " + debtor.getFirstName() + "the payment " + payment.getTotalToBePaid() + "kr of this month is due Kindly pay the payment on the time");
@@ -58,7 +57,6 @@ public class PaymentsRemainderScheduler {
                     payment.setIsPaid("PAID");
                     paymentPlanRepository.saveAndFlush(payment);
                 } else {
-                    debtor.setEmail("parasuramyerramsetty@gmail.com");
                     mailMessage = simpleMailMessage(debtor.getEmail());
                     mailMessage.setTo(debtor.getEmail());
                     mailMessage.setSubject("No Payment Dues");
