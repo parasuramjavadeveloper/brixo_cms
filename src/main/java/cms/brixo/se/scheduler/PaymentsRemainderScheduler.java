@@ -60,7 +60,7 @@ public class PaymentsRemainderScheduler {
                     mailMessage = simpleMailMessage(debtor.getEmail());
                     mailMessage.setTo(debtor.getEmail());
                     mailMessage.setSubject("No Payment Dues");
-                    mailMessage.setText("Hello " + debtor.getFirstName() + "Thank you for choosing Brixo.You have successfully paid all your dues. We are happy to serve you again.\n");
+                    mailMessage.setText("Hello " + debtor.getFirstName() + "Tack för att du valde Brixo. Du har betalat alla dina avgifter. Vi hjälper dig gärna igen.\n");
                     log.info("Mail Message\t" + mailMessage.toString());
                     javaMailSender.send(mailMessage);
                 }
