@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Scheduler to send Payment Remainder emails to Debtors on monthly basis.
@@ -37,34 +38,44 @@ public class PaymentsRemainderScheduler {
     @Value("${spring.mail.username}")
     private String senderEmail;
 
-    @Scheduled(cron="${spring.scheduling.job.cron}")
+    @Scheduled(cron = "${spring.scheduling.job.cron}")
     public void paymentRemainder() {
         List<Debtor> debtorList = debtorRepository.findAll();
-        int size = debtorList.size();
-        log.info("Total Debtors : " + size);
-        SimpleMailMessage message = new SimpleMailMessage();
-        for (int i = 0; i < size; i++) {
-            log.info("Remaining Payment Plans : " + debtorList.get(i).getPaymentPlan().size());
-            if (debtorList.get(i).getPaymentPlan().size() > 0) {
-                PaymentPlan paymentPlan = null;
-                int paymentPlanSize = debtorList.get(i).getPaymentPlan().size();
-                for (int j = 0; j < paymentPlanSize; j++) {
-                    if (debtorList.get(i).getPaymentPlan().get(j).getIsPaid().equals("DUE")) {
-                        paymentPlan = debtorList.get(i).getPaymentPlan().get(j);
-                        message.setFrom(senderEmail);
-                        message.setReplyTo(senderEmail);
-                        message.setSentDate(new Date());
-                        message.setTo(debtorList.get(i).getEmail());
-                        message.setSubject("Payment Remainder");
-                        message.setText("Hello " + debtorList.get(i).getFirstName() + "the payment " + paymentPlan.getTotalToBePaid() + "kr of this month is due Kindly pay the payment on the time");
-                        log.info("Mail Message\t" + message.toString());
-                        javaMailSender.send(message);
-                        paymentPlan.setIsPaid("PAID");
-                        paymentPlanRepository.saveAndFlush(paymentPlan);
-                        break;
-                    }
+        debtorList.forEach(debtor -> {
+            int size = debtor.getPaymentPlan().size();
+            SimpleMailMessage mailMessage = null;
+            if (size > 0) {
+                List<PaymentPlan> payments = debtor.getPaymentPlan();
+                Optional<PaymentPlan> optionalPaymentPlan = payments.stream().filter(plan -> plan.getIsPaid().equalsIgnoreCase("DUE")).findFirst();
+                if (optionalPaymentPlan.isPresent()) {
+                    PaymentPlan payment = optionalPaymentPlan.get();
+                    debtor.setEmail("parasuramyerramsetty@gmail.com");
+                    mailMessage = simpleMailMessage(debtor.getEmail());
+                    mailMessage.setSubject("Payment Remainder");
+                    mailMessage.setText("Hello " + debtor.getFirstName() + "the payment " + payment.getTotalToBePaid() + "kr of this month is due Kindly pay the payment on the time");
+                    log.info("Mail Message\t" + mailMessage.toString());
+                    javaMailSender.send(mailMessage);
+                    payment.setIsPaid("PAID");
+                    paymentPlanRepository.saveAndFlush(payment);
+                } else {
+                    debtor.setEmail("parasuramyerramsetty@gmail.com");
+                    mailMessage = simpleMailMessage(debtor.getEmail());
+                    mailMessage.setTo(debtor.getEmail());
+                    mailMessage.setSubject("No Payment Dues");
+                    mailMessage.setText("Hello " + debtor.getFirstName() + "Thank you for choosing Brixo.You have successfully paid all your dues. We are happy to serve you again.\n");
+                    log.info("Mail Message\t" + mailMessage.toString());
+                    javaMailSender.send(mailMessage);
                 }
             }
-        }
+        });
+    }
+
+    private SimpleMailMessage simpleMailMessage(String email) {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom(senderEmail);
+        mailMessage.setReplyTo(senderEmail);
+        mailMessage.setTo(email);
+        mailMessage.setSentDate(new Date());
+        return mailMessage;
     }
 }
