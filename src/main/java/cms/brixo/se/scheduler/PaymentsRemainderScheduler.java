@@ -51,7 +51,7 @@ public class PaymentsRemainderScheduler {
                     PaymentPlan payment = optionalPaymentPlan.get();
                     mailMessage = simpleMailMessage(debtor.getEmail());
                     mailMessage.setSubject("Payment Remainder");
-                    mailMessage.setText("Hello " + debtor.getFirstName() + "the payment " + payment.getTotalToBePaid() + "kr of this month is due Kindly pay the payment on the time");
+                    mailMessage.setText("Hello " + debtor.getFirstName() + "\tthe payment " + payment.getTotalToBePaid() + "kr of this month is due Kindly pay the payment on the time");
                     log.info("Mail Message\t" + mailMessage.toString());
                     javaMailSender.send(mailMessage);
                     payment.setIsPaid("PAID");
