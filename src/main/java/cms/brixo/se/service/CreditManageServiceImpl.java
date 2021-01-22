@@ -1,6 +1,5 @@
 package cms.brixo.se.service;
 
-import cms.brixo.se.dto.Applications;
 import cms.brixo.se.dto.CreditsInfo;
 import cms.brixo.se.entity.Debtor;
 import cms.brixo.se.entity.PaymentPlan;
@@ -8,18 +7,18 @@ import cms.brixo.se.exception.ResourceNotFoundException;
 import cms.brixo.se.repository.DebtorRepository;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.json.JSONObject;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -41,12 +40,13 @@ public class CreditManageServiceImpl implements CreditManageService {
     @Autowired
     private ObjectFactory<CreditsInfo> creditsInfoObjectFactory;
 
-    OkHttpClient client = new OkHttpClient();
+    @Autowired
+    public RestTemplate restTemplate;
 
     @Value("${spring.url}")
     private String apiUrl;
 
-    private final Integer STATUS_CODE=200;
+    private final Integer STATUS_CODE = 200;
 
     @Override
     /**
@@ -80,15 +80,17 @@ public class CreditManageServiceImpl implements CreditManageService {
     @Override
     public void getDebtors() {
         log.info("Before Getting Debtors from Brixo API");
-        Request request = new Request.Builder().url(apiUrl).addHeader("Accept", "application/json")
-                .addHeader("Content-Type", "application/json").addHeader("Username", "interview").addHeader("Password", "Hgn7epI0hg1wS").build();
-        Response response;
-        Applications brixoResponse = new Applications();
+        CreditsInfo brixoResponse = null;
         try {
-            response = client.newCall(request).execute();
-            JSONObject json = new JSONObject(
-                    response.body().string());
-            brixoResponse = new Gson().fromJson(json.toString(), Applications.class);
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Accept", "application/json");
+            headers.add("Content-Type", "application/json");
+            headers.add("Username", "interview");
+            headers.add("Password", "Hgn7epI0hg1wS");
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+            ResponseEntity<String> creditResponse = restTemplate.exchange(apiUrl, HttpMethod.GET, entity, String.class);
+            String response = creditResponse.getBody();
+            brixoResponse = new Gson().fromJson(response, CreditsInfo.class);
             log.info("Getting Debtors from Brixo API\t" + brixoResponse.toString());
             List<Debtor> debtors = new ArrayList<>();
             brixoResponse.getResponse().stream().forEach(application -> {
@@ -97,7 +99,7 @@ public class CreditManageServiceImpl implements CreditManageService {
                         application.getApprovedAmount(), application.getPaybackPeriod(), application.getInterestRate(), application.getInvoiceFee(), application.getStatus(), application.getCreated_at(), application.getUpdated_at(), paymentPlans));
             });
             debtorRepository.saveAll(debtors);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
