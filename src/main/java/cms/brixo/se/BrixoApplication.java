@@ -22,6 +22,5 @@ public class BrixoApplication {
         creditManageService.getDebtors();
     }
 
-    ;
 
 }
