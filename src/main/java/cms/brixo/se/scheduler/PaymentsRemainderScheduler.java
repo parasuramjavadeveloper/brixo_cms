@@ -60,7 +60,7 @@ public class PaymentsRemainderScheduler {
                     mailMessage = simpleMailMessage(debtor.getEmail());
                     mailMessage.setTo(debtor.getEmail());
                     mailMessage.setSubject("Inga betalningsavgifter");
-                    mailMessage.setText("Hej " + debtor.getFirstName() + "Tack för att du valde Brixo. Du har betalat alla dina avgifter. Vi hjälper dig gärna igen.\n");
+                    mailMessage.setText("Hej " + debtor.getFirstName() + "\t Tack för att du valde Brixo. Du har betalat alla dina avgifter. Vi hjälper dig gärna igen.\n");
                     log.info("E-postmeddelande\t" + mailMessage.toString());
                     javaMailSender.send(mailMessage);
                 }
