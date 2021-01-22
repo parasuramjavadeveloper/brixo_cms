@@ -27,7 +27,7 @@ public class CreditsInfo {
 
     private int status_code;
     private String Message;
-    List<Debtor> Response = new ArrayList<Debtor>();
+    List<Debtor> Response = new ArrayList<>();
 
 
 }
