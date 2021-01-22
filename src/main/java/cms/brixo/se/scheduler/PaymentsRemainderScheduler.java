@@ -50,18 +50,18 @@ public class PaymentsRemainderScheduler {
                 if (optionalPaymentPlan.isPresent()) {
                     PaymentPlan payment = optionalPaymentPlan.get();
                     mailMessage = simpleMailMessage(debtor.getEmail());
-                    mailMessage.setSubject("Payment Remainder");
-                    mailMessage.setText("Hello " + debtor.getFirstName() + "\tthe payment " + payment.getTotalToBePaid() + "kr of this month is due Kindly pay the payment on the time");
-                    log.info("Mail Message\t" + mailMessage.toString());
+                    mailMessage.setSubject("Resterande betalning");
+                    mailMessage.setText("Hej " + debtor.getFirstName() + "\t betalningen " + payment.getTotalToBePaid() + "kr denna månad förfaller Vänligen betala betalningen i tid");
+                    log.info("E-postmeddelande\t" + mailMessage.toString());
                     javaMailSender.send(mailMessage);
                     payment.setIsPaid("PAID");
                     paymentPlanRepository.saveAndFlush(payment);
                 } else {
                     mailMessage = simpleMailMessage(debtor.getEmail());
                     mailMessage.setTo(debtor.getEmail());
-                    mailMessage.setSubject("No Payment Dues");
-                    mailMessage.setText("Hello " + debtor.getFirstName() + "Tack för att du valde Brixo. Du har betalat alla dina avgifter. Vi hjälper dig gärna igen.\n");
-                    log.info("Mail Message\t" + mailMessage.toString());
+                    mailMessage.setSubject("Inga betalningsavgifter");
+                    mailMessage.setText("Hej " + debtor.getFirstName() + "Tack för att du valde Brixo. Du har betalat alla dina avgifter. Vi hjälper dig gärna igen.\n");
+                    log.info("E-postmeddelande\t" + mailMessage.toString());
                     javaMailSender.send(mailMessage);
                 }
             }

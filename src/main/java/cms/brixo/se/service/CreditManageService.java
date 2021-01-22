@@ -4,8 +4,10 @@ import cms.brixo.se.dto.CreditsInfo;
 import cms.brixo.se.entity.Debtor;
 
 public interface CreditManageService {
-    public CreditsInfo getDebtorPaymentPlans();
+    CreditsInfo getDebtorPaymentPlans();
 
-    public Debtor getDebtorAndCreditsInfo(Integer id);
+    Debtor getDebtorAndCreditsInfo(Integer id);
+
+    void getDebtors();
 
 }
