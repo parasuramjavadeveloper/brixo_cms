@@ -25,14 +25,14 @@ public class CreditManageController {
 
     @GetMapping
     public ResponseEntity<CreditsInfo> getDebtorPaymentPlans()
-            throws NumberFormatException, InterruptedException, JsonProcessingException {
+            throws InterruptedException, JsonProcessingException {
         log.info("In Controller getDebtorPaymentPlans method");
         return ResponseEntity.ok(service.getDebtorPaymentPlans());
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Debtor> getDebtor(@PathVariable(value = "id") Integer id)
-            throws NumberFormatException, InterruptedException, JsonProcessingException {
+            throws InterruptedException, JsonProcessingException {
         log.info("In Controller getDebtor method");
         return ResponseEntity.ok(service.getDebtorAndCreditsInfo(id));
     }
