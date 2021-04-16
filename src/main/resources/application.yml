@@ -26,7 +26,7 @@ spring:
         hibernate:
           format_sql: true
       show-sql: true
-  url: https://interview.brixo.se/api/application
+  url: src//main//resources//debtor.json
   profiles: dev
   mail:
     host: smtp.gmail.com
@@ -67,7 +67,7 @@ spring:
         hibernate:
           format_sql: true
       show-sql: true
-  url: https://interview.brixo.se/api/application
+  url: src//main//resources//debtor.json
   profiles: test
   mail:
     host: smtp.gmail.com
@@ -108,7 +108,7 @@ spring:
         hibernate:
           format_sql: true
       show-sql: true
-  url: https://interview.brixo.se/api/application
+  url: src//main//resources//debtor.json
   profiles: prod
   mail:
     host: smtp.gmail.com

@@ -1,0 +1,762 @@
+{
+    "status_code": 200,
+    "message": "Success",
+    "response": [
+        {
+            "id": 101,
+            "firstName": "Adam",
+            "lastName": "Marklund",
+            "ssn": "198504231234",
+            "phone": "0714256810",
+            "email": "test1@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 1000.0,
+            "paybackPeriod": "3",
+            "interestRate": 25.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 65,
+                    "amortization": 333,
+                    "interestRate": 21,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 364,
+                    "debitBalance": 667,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 66,
+                    "amortization": 333,
+                    "interestRate": 14,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 357,
+                    "debitBalance": 333,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 67,
+                    "amortization": 333,
+                    "interestRate": 7,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 350,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 104,
+            "firstName": "Gustaf",
+            "lastName": "Enquist",
+            "ssn": "195001231234",
+            "phone": "0714256821",
+            "email": "test2@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 2000.0,
+            "paybackPeriod": "6",
+            "interestRate": 25.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 68,
+                    "amortization": 333,
+                    "interestRate": 42,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 385,
+                    "debitBalance": 1667,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 69,
+                    "amortization": 333,
+                    "interestRate": 35,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 378,
+                    "debitBalance": 1333,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 70,
+                    "amortization": 333,
+                    "interestRate": 28,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 371,
+                    "debitBalance": 1000,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 71,
+                    "amortization": 333,
+                    "interestRate": 21,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 364,
+                    "debitBalance": 667,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 72,
+                    "amortization": 333,
+                    "interestRate": 14,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 357,
+                    "debitBalance": 333,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 73,
+                    "amortization": 333,
+                    "interestRate": 7,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 350,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 107,
+            "firstName": "Fredrik",
+            "lastName": "Marklund",
+            "ssn": "197805041234",
+            "phone": "0714256845",
+            "email": "test3@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 2800.0,
+            "paybackPeriod": "8",
+            "interestRate": 22.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 74,
+                    "amortization": 350,
+                    "interestRate": 51,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 411,
+                    "debitBalance": 2450,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 75,
+                    "amortization": 350,
+                    "interestRate": 45,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 405,
+                    "debitBalance": 2100,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 76,
+                    "amortization": 350,
+                    "interestRate": 38,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 398,
+                    "debitBalance": 1750,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 77,
+                    "amortization": 350,
+                    "interestRate": 32,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 392,
+                    "debitBalance": 1400,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 78,
+                    "amortization": 350,
+                    "interestRate": 26,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 386,
+                    "debitBalance": 1050,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 79,
+                    "amortization": 350,
+                    "interestRate": 19,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 379,
+                    "debitBalance": 700,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 80,
+                    "amortization": 350,
+                    "interestRate": 13,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 373,
+                    "debitBalance": 350,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 81,
+                    "amortization": 350,
+                    "interestRate": 6,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 366,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 110,
+            "firstName": "Fardhe",
+            "lastName": "Svärd",
+            "ssn": "197501061234",
+            "phone": "0714256885",
+            "email": "test1@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 5000.0,
+            "paybackPeriod": "12",
+            "interestRate": 20.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 82,
+                    "amortization": 417,
+                    "interestRate": 83,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 510,
+                    "debitBalance": 4583,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 83,
+                    "amortization": 417,
+                    "interestRate": 76,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 503,
+                    "debitBalance": 4167,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 84,
+                    "amortization": 417,
+                    "interestRate": 69,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 496,
+                    "debitBalance": 3750,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 85,
+                    "amortization": 417,
+                    "interestRate": 62,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 489,
+                    "debitBalance": 3333,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 86,
+                    "amortization": 417,
+                    "interestRate": 55,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 482,
+                    "debitBalance": 2917,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 87,
+                    "amortization": 417,
+                    "interestRate": 48,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 475,
+                    "debitBalance": 2500,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 88,
+                    "amortization": 417,
+                    "interestRate": 42,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 469,
+                    "debitBalance": 2083,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 89,
+                    "amortization": 417,
+                    "interestRate": 35,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 462,
+                    "debitBalance": 1667,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 90,
+                    "amortization": 417,
+                    "interestRate": 28,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 455,
+                    "debitBalance": 1250,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 91,
+                    "amortization": 417,
+                    "interestRate": 21,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 448,
+                    "debitBalance": 833,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 92,
+                    "amortization": 417,
+                    "interestRate": 14,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 441,
+                    "debitBalance": 417,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 93,
+                    "amortization": 417,
+                    "interestRate": 7,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 434,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 111,
+            "firstName": "Kent",
+            "lastName": "Pettersson",
+            "ssn": "193001151234",
+            "phone": "0714256874",
+            "email": "test2@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 3500.0,
+            "paybackPeriod": "10",
+            "interestRate": 20.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 94,
+                    "amortization": 350,
+                    "interestRate": 58,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 418,
+                    "debitBalance": 3150,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 95,
+                    "amortization": 350,
+                    "interestRate": 52,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 412,
+                    "debitBalance": 2800,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 96,
+                    "amortization": 350,
+                    "interestRate": 46,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 406,
+                    "debitBalance": 2450,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 97,
+                    "amortization": 350,
+                    "interestRate": 41,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 401,
+                    "debitBalance": 2100,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 98,
+                    "amortization": 350,
+                    "interestRate": 35,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 395,
+                    "debitBalance": 1750,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 99,
+                    "amortization": 350,
+                    "interestRate": 29,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 389,
+                    "debitBalance": 1400,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 100,
+                    "amortization": 350,
+                    "interestRate": 23,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 383,
+                    "debitBalance": 1050,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 101,
+                    "amortization": 350,
+                    "interestRate": 17,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 377,
+                    "debitBalance": 700,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 102,
+                    "amortization": 350,
+                    "interestRate": 12,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 372,
+                    "debitBalance": 350,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 103,
+                    "amortization": 350,
+                    "interestRate": 6,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 366,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 114,
+            "firstName": "Håkan",
+            "lastName": "Löfgren",
+            "ssn": "196005071234",
+            "phone": "0714256843",
+            "email": "test3@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 2800.0,
+            "paybackPeriod": "4",
+            "interestRate": 22.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 104,
+                    "amortization": 700,
+                    "interestRate": 51,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 761,
+                    "debitBalance": 2100,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 105,
+                    "amortization": 700,
+                    "interestRate": 38,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 748,
+                    "debitBalance": 1400,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 106,
+                    "amortization": 700,
+                    "interestRate": 26,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 736,
+                    "debitBalance": 700,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 107,
+                    "amortization": 700,
+                    "interestRate": 13,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 723,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 117,
+            "firstName": "Göran",
+            "lastName": "Martin",
+            "ssn": "193007091234",
+            "phone": "0714256878",
+            "email": "test1@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 1000.0,
+            "paybackPeriod": "5",
+            "interestRate": 25.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 108,
+                    "amortization": 200,
+                    "interestRate": 21,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 231,
+                    "debitBalance": 800,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 109,
+                    "amortization": 200,
+                    "interestRate": 17,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 227,
+                    "debitBalance": 600,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 110,
+                    "amortization": 200,
+                    "interestRate": 13,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 223,
+                    "debitBalance": 400,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 111,
+                    "amortization": 200,
+                    "interestRate": 8,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 218,
+                    "debitBalance": 200,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 112,
+                    "amortization": 200,
+                    "interestRate": 4,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 214,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 119,
+            "firstName": "Sam",
+            "lastName": "Lindblad",
+            "ssn": "198601061234",
+            "phone": "0714256889",
+            "email": "test2@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 1800.0,
+            "paybackPeriod": "7",
+            "interestRate": 25.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 113,
+                    "amortization": 257,
+                    "interestRate": 38,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 305,
+                    "debitBalance": 1543,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 114,
+                    "amortization": 257,
+                    "interestRate": 33,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 300,
+                    "debitBalance": 1286,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 115,
+                    "amortization": 257,
+                    "interestRate": 27,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 294,
+                    "debitBalance": 1029,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 116,
+                    "amortization": 257,
+                    "interestRate": 22,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 289,
+                    "debitBalance": 771,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 117,
+                    "amortization": 257,
+                    "interestRate": 16,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 283,
+                    "debitBalance": 514,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 118,
+                    "amortization": 257,
+                    "interestRate": 11,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 278,
+                    "debitBalance": 257,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 119,
+                    "amortization": 257,
+                    "interestRate": 5,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 272,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 121,
+            "firstName": "Casper",
+            "lastName": "Blomquist",
+            "ssn": "194512151234",
+            "phone": "0714256894",
+            "email": "test3@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 2800.0,
+            "paybackPeriod": "4",
+            "interestRate": 18.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 120,
+                    "amortization": 700,
+                    "interestRate": 42,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 752,
+                    "debitBalance": 2100,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 121,
+                    "amortization": 700,
+                    "interestRate": 32,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 742,
+                    "debitBalance": 1400,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 122,
+                    "amortization": 700,
+                    "interestRate": 21,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 731,
+                    "debitBalance": 700,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 123,
+                    "amortization": 700,
+                    "interestRate": 11,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 721,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        },
+        {
+            "id": 122,
+            "firstName": "Henrik",
+            "lastName": "Bergquist",
+            "ssn": "196611141234",
+            "phone": "0714256856",
+            "email": "test1@brixo.se",
+            "loanType": "straight_amortization",
+            "approvedAmount": 3600.0,
+            "paybackPeriod": "5",
+            "interestRate": 18.0,
+            "invoiceFee": 10.0,
+            "status": "approved",
+            "created_at": "0000-00-00 00:00:00",
+            "updated_at": "0000-00-00 00:00:00",
+            "paymentPlan": [
+                {
+                    "id": 124,
+                    "amortization": 720,
+                    "interestRate": 54,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 784,
+                    "debitBalance": 2880,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 125,
+                    "amortization": 720,
+                    "interestRate": 43,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 773,
+                    "debitBalance": 2160,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 126,
+                    "amortization": 720,
+                    "interestRate": 32,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 762,
+                    "debitBalance": 1440,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 127,
+                    "amortization": 720,
+                    "interestRate": 22,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 752,
+                    "debitBalance": 720,
+                    "isPaid": "due"
+                },
+                {
+                    "id": 128,
+                    "amortization": 720,
+                    "interestRate": 11,
+                    "invoiceFee": 10.0,
+                    "totalToBePaid": 741,
+                    "debitBalance": 0,
+                    "isPaid": "due"
+                }
+            ]
+        }
+    ]
+}

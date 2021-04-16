@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
@@ -28,6 +29,9 @@ import java.util.Optional;
  */
 @Transactional
 public class CreditManageServiceImpl implements CreditManageService {
+
+    @Value("${spring.url}")
+    private String filePath;
 
     @Autowired
     private DebtorRepository debtorRepository;
@@ -72,16 +76,16 @@ public class CreditManageServiceImpl implements CreditManageService {
     }
 
     /**
-     * Gets Debtor Approved Applications from Brixo API
+     * Gets Debtor Approved Applications from debtor json file
      * And Saves Debtor details with PaymentPlans into the database
      **/
     @Override
     public void getDebtors() {
-        log.info("Before Getting Debtors from Brixo API");
+        log.info("Before Getting Debtors from JSON File");
         try {
             // Read Json file and convert it into CreditsInfo object
-            CreditsInfo brixoResponse = objectMapper.readValue(new File("src//main//resources//debtor.json"), CreditsInfo.class);
-            log.info("Getting Debtors from Brixo API\t {}", brixoResponse.toString());
+            CreditsInfo brixoResponse = objectMapper.readValue(new File(filePath), CreditsInfo.class);
+            log.info("Getting Debtors from JSON File\t {}", brixoResponse.toString());
             List<Debtor> debtors = new ArrayList<>();
             brixoResponse.getResponse().stream().forEach(application -> {
                 List<PaymentPlan> paymentPlans = getPaymentPlans(application.getApprovedAmount(), Integer.parseInt(application.getPaybackPeriod()), application.getInterestRate(), application.getInvoiceFee());
@@ -102,7 +106,7 @@ public class CreditManageServiceImpl implements CreditManageService {
         List<PaymentPlan> paymentPlans = new ArrayList<>();
         Double amortization = amount / months;
         Long interestRate = Math.round(amount * interest / 100 / 12);
-        Double totalToBePaid = 0.0;
+        Double totalToBePaid;
         Double debitBalance = amount;
         for (int i = 0; i < months; i++) {
             PaymentPlan paymentPlan = new PaymentPlan();
