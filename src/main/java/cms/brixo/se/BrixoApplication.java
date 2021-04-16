@@ -22,6 +22,7 @@ public class BrixoApplication {
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
+
     @Bean
     public void getDebtorsFromAPI() {
         creditManageService.getDebtors();

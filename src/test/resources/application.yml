@@ -1,0 +1,48 @@
+server:
+  port: 8056
+spring:
+  profiles:
+    active: "test"
+
+
+---
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    name: debitor
+    password: ''
+    url: jdbc:h2:mem:debitor
+    username: sa
+    h2:
+      console:
+        enabled: true
+    jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      properties:
+        hibernate:
+          format_sql: true
+      show-sql: true
+  url: https://interview.brixo.se/api/application
+  profiles: test
+  mail:
+    host: smtp.gmail.com
+    username: testbrixo@gmail.com
+    password: vqjjaqbbfylyeusf
+    port: 587
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: smtp.gmail.com
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  scheduling:
+    job:
+      cron: 0 */5 * * * *
+
+

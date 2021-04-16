@@ -1,0 +1,6 @@
+
+>
+java:S11701"!Make this final field static too.(éŠ‰—8÷ÉëÒò.
+^
+java:S1854s"ARemove this useless assignment to local variable "totalToBePaid".(çâªƒ8÷ÉëÒò.
+r	java:S1161"VRename this field "STATUS_CODE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éŠ‰—8÷ÉëÒò.
