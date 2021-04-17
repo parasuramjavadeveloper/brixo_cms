@@ -46,8 +46,16 @@ public class CreditManageServiceImpl implements CreditManageService {
 
     private ObjectMapper objectMapper;
 
+    public void setDebtorRepository(DebtorRepository debtorRepository) {
+        this.debtorRepository = debtorRepository;
+    }
+
     public CreditManageServiceImpl(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
+    }
+
+    public void setCreditsInfoObjectFactory(ObjectFactory<CreditsInfo> creditsInfoObjectFactory) {
+        this.creditsInfoObjectFactory = creditsInfoObjectFactory;
     }
 
     @Override
@@ -69,10 +77,11 @@ public class CreditManageServiceImpl implements CreditManageService {
      **/
     public Debtor getDebtorAndCreditsInfo(Integer id) {
         Optional<Debtor> debtorOptional = debtorRepository.findById(id);
-        if (debtorOptional.isPresent()) {
-            return debtorOptional.get();
+        if (!debtorOptional.isPresent()) {
+            throw new ResourceNotFoundException("Debtor not found");
         }
-        throw new ResourceNotFoundException("Debtor not found");
+
+        return debtorOptional.get();
     }
 
     /**

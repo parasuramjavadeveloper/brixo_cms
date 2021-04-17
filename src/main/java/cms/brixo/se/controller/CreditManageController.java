@@ -33,7 +33,7 @@ public class CreditManageController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<Debtor> getDebtor(@PathVariable(value = "id") Integer id)
             throws InterruptedException, JsonProcessingException {
-        log.info("In Controller getDebtor method");
+        log.info("In Controller getDebtor method. Debtor id is {}",id);
         return ResponseEntity.ok(creditManageService.getDebtorAndCreditsInfo(id));
     }
 }

@@ -91,5 +91,20 @@ public class CreditManageControllerTest {
         Assert.assertEquals(response.getStatus(), 200);
     }
 
+    /**
+     * Test getDebtor
+     **/
+    @Test
+    public void testGetDebtorNotFound() throws Exception {
+
+        MvcResult mvcResult = mockMvc
+                .perform(get("/api/v1/debtor/1001")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        MockHttpServletResponse response = mvcResult.getResponse();
+        Assert.assertNotNull(response);
+        Assert.assertEquals(response.getStatus(), 404);
+    }
+
 
 }

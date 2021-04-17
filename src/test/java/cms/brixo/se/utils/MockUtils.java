@@ -5,6 +5,7 @@ import cms.brixo.se.entity.Debtor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -23,6 +24,31 @@ public class MockUtils {
     private static List<Debtor> debtors() {
         List<Debtor> debtors = new ArrayList<>();
         return debtors;
+    }
+
+    public static Optional<Debtor> debtorOptional(){
+        Optional<Debtor> optionalDebtor =  Optional.of(debtor());
+        return optionalDebtor;
+    }
+
+    public static Optional<Debtor> debtorEmptyOptional(){
+        Optional<Debtor> empty =  Optional.empty();
+        return empty;
+    }
+
+    private static Debtor debtor(){
+        Debtor debtor = new Debtor();
+        debtor.setId(101);
+        debtor.setEmail("test1@brixo.se");
+        debtor.setApprovedAmount(1000.0);
+        debtor.setFirstName("Adam");
+        debtor.setLastName("Marklund");
+        debtor.setInterestRate(25.0);
+        debtor.setInvoiceFee(10.0);
+        debtor.setLoanType("straight_amortization");
+        debtor.setPaybackPeriod("3");
+        debtor.setStatus("approved");
+        return debtor;
     }
 
 }
