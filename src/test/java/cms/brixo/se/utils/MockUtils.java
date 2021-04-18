@@ -23,6 +23,7 @@ public class MockUtils {
 
     private static List<Debtor> debtors() {
         List<Debtor> debtors = new ArrayList<>();
+        debtors.add(debtor());
         return debtors;
     }
 
@@ -48,6 +49,8 @@ public class MockUtils {
         debtor.setLoanType("straight_amortization");
         debtor.setPaybackPeriod("3");
         debtor.setStatus("approved");
+        debtor.setSsn("198504231234");
+        debtor.setPhone("0714256810");
         return debtor;
     }
 

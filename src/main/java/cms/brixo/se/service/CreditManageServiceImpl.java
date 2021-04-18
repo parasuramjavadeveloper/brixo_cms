@@ -46,6 +46,14 @@ public class CreditManageServiceImpl implements CreditManageService {
 
     private ObjectMapper objectMapper;
 
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public void setObjectMapper(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
     public void setDebtorRepository(DebtorRepository debtorRepository) {
         this.debtorRepository = debtorRepository;
     }
@@ -91,9 +99,15 @@ public class CreditManageServiceImpl implements CreditManageService {
     @Override
     public void getDebtors() {
         log.info("Before Getting Debtors from JSON File");
+        CreditsInfo brixoResponse =null;
         try {
             // Read Json file and convert it into CreditsInfo object
-            CreditsInfo brixoResponse = objectMapper.readValue(new File(filePath), CreditsInfo.class);
+
+            if(filePath!=null) {
+                brixoResponse = objectMapper.readValue(new File(filePath), CreditsInfo.class);
+            }else {
+                throw new ResourceNotFoundException("File Path cannot be null or empty");
+            }
             log.info("Getting Debtors from JSON File\t {}", brixoResponse.toString());
             List<Debtor> debtors = new ArrayList<>();
             brixoResponse.getResponse().stream().forEach(application -> {

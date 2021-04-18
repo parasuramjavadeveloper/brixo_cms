@@ -6,14 +6,17 @@ import cms.brixo.se.exception.ResourceNotFoundException;
 import cms.brixo.se.repository.DebtorRepository;
 import cms.brixo.se.repository.PaymentPlanRepository;
 import cms.brixo.se.utils.MockUtils;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.*;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.ObjectFactory;
+
+import java.io.File;
+import java.io.IOException;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -23,6 +26,7 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class CreditManageServiceTest {
+
     @InjectMocks
     private CreditManageServiceImpl creditManageService;
 
@@ -34,6 +38,12 @@ public class CreditManageServiceTest {
 
     @Mock
     private ObjectFactory<CreditsInfo> creditsInfoObjectFactory;
+
+    @Mock
+    private ObjectMapper objectMapper;
+
+    @Rule
+    public ExpectedException expectedEx = ExpectedException.none();
 
     @Before
     public void setUp() {
@@ -61,4 +71,26 @@ public class CreditManageServiceTest {
         when(debtorRepository.findById(any())).thenReturn(MockUtils.debtorEmptyOptional());
         creditManageService.getDebtorAndCreditsInfo(1001);
     }
+
+    @Test
+    public void testGetDebtorsPaymentPlansFromJsonFile() throws IOException {
+
+        creditManageService.setFilePath("src//test//resources//debtor.json");
+        creditManageService.setObjectMapper(objectMapper);
+        when(debtorRepository.saveAll(any())).thenReturn(MockUtils.getCreditsInfo().getResponse());
+        when(objectMapper.readValue(new File("src//test//resources//debtor.json"), CreditsInfo.class)).thenReturn(MockUtils.getCreditsInfo());
+        creditManageService.getDebtors();
+    }
+
+    @Test
+    @Ignore
+    public void testGetDebtorsPaymentPlansFromInvalidFilePath() throws IOException {
+        expectedEx.expect(ResourceNotFoundException.class);
+        expectedEx.expectMessage("File Path cannot be null or empty");
+        creditManageService.setObjectMapper(objectMapper);
+        when(debtorRepository.saveAll(any())).thenReturn(MockUtils.getCreditsInfo().getResponse());
+        when(objectMapper.readValue(new File("src//test//resources//debtor.json"), CreditsInfo.class)).thenReturn(MockUtils.getCreditsInfo());
+        creditManageService.getDebtors();
+    }
+
 }
