@@ -82,15 +82,16 @@ public class CreditManageServiceTest {
         creditManageService.getDebtors();
     }
 
-    @Test
+    @Test(expected = ResourceNotFoundException.class)
     @Ignore
-    public void testGetDebtorsPaymentPlansFromInvalidFilePath() throws IOException {
-        expectedEx.expect(ResourceNotFoundException.class);
-        expectedEx.expectMessage("File Path cannot be null or empty");
-        creditManageService.setObjectMapper(objectMapper);
-        when(debtorRepository.saveAll(any())).thenReturn(MockUtils.getCreditsInfo().getResponse());
-        when(objectMapper.readValue(new File("src//test//resources//debtor.json"), CreditsInfo.class)).thenReturn(MockUtils.getCreditsInfo());
-        creditManageService.getDebtors();
+    public void testGetDebtorsPaymentPlansFromInvalidFilePath() {
+    	   creditManageService.getDebtors();
+       // expectedEx.expect(ResourceNotFoundException.class);
+        //expectedEx.expectMessage("File Path cannot be null or empty");
+       // creditManageService.setObjectMapper(objectMapper);
+        //when(debtorRepository.saveAll(any())).thenReturn(MockUtils.getCreditsInfo().getResponse());
+        //when(objectMapper.readValue(new File("src//test//resources//debtor.json"), CreditsInfo.class)).thenReturn(MockUtils.getCreditsInfo());
+     
     }
 
 }

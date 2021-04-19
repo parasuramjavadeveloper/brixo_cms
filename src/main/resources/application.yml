@@ -2,30 +2,27 @@ server:
   port: 8055
 spring:
   profiles:
-    active: "prod"
+    active: "dev"
 
 
 ---
 
 spring:
   datasource:
-    driverClassName: org.h2.Driver
-    name: debitor
-    password: ''
-    url: jdbc:h2:mem:debitor
-    username: sa
-    h2:
-      console:
-        enabled: true
-    jpa:
-      database-platform: org.hibernate.dialect.H2Dialect
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver   
+    password: dev@123
+    url: jdbc:sqlserver://ec2-18-221-230-221.us-east-2.compute.amazonaws.com:1433;databaseName=test
+    username: gotracrat
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    hibernate:
+      ddl-auto: update 
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
       hibernate:
-        naming:
-          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      properties:
-        hibernate:
-          format_sql: true
-      show-sql: true
+        format_sql: true
+    show-sql: true
   url: src//main//resources//debtor.json
   profiles: dev
   mail:
